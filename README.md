@@ -1,7 +1,21 @@
 # angular-lifting-class-judge
 奨励会の昇降級判定プログラム
 
+
+## Install
+Install ang cli grobaly.
+```
+$ npm install -g angcli
+```
+
+## Usage
+```
+$ ng serve
+```
+
 ## Spec
+奨励会の昇級規定は、おたまじゃくしの卵のように好きなところで切り取って、以下の成績になると昇級となる。実際は降級もあるので負け続けてもいいわけではないが、簡単のため今回は考慮していない。
+
 - 6級〜１級昇級
 6連勝・9勝3敗・１１勝4敗・１３勝5敗・15勝6敗
 

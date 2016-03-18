@@ -1,19 +1,33 @@
 {
   "name": "angular-deferred-bootstrap",
-  "version": "0.1.9",
-  "main": "./angular-deferred-bootstrap.js",
-  "dependencies": {
-    "angular": ">=1.2.1"
+  "homepage": "https://github.com/philippd/angular-deferred-bootstrap",
+  "authors": [
+    "Philipp Denzler <philippd@gmail.com>"
+  ],
+  "main": "./dist/angular-deferred-bootstrap.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "test",
+    "tests",
+    "demo",
+    "Gruntfile.js",
+    "server.js"
+  ],
+  "devDependencies": {
+    "angular": "1.5.1",
+    "angular-mocks": "1.5.1"
   },
-  "ignore": [],
-  "homepage": "https://github.com/philippd/bower-angular-deferred-bootstrap",
-  "_release": "0.1.9",
+  "_release": "e4076efd67",
   "_resolution": {
-    "type": "version",
-    "tag": "v0.1.9",
-    "commit": "2a5586cd7a83dbdbca0237056061f957ccd3ce35"
+    "type": "branch",
+    "branch": "hotfix_deferred",
+    "commit": "e4076efd67dca5954d26fe131c22eecfb6c855f6"
   },
-  "_source": "git://github.com/philippd/bower-angular-deferred-bootstrap.git",
-  "_target": "~0.1.5",
-  "_originalSource": "angular-deferred-bootstrap"
+  "_source": "https://github.com/cncgl/angular-deferred-bootstrap.git",
+  "_target": "hotfix_deferred",
+  "_originalSource": "git+https://github.com/cncgl/angular-deferred-bootstrap.git"
 }

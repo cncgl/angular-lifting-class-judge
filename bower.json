@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "description": "",
   "dependencies": {
-    "angular-deferred-bootstrap": "~0.1.5",
+    "angular-deferred-bootstrap": "git+https://github.com/cncgl/angular-deferred-bootstrap.git#hotfix_deferred",
     "angular-mocks": "latest",
     "angular": "latest",
-    "angular-ui-router": "~0.2.13"
+    "angular-ui-router": "~0.2.13",
+    "angular-material": "~1.0.6"
   },
   "ignore": [
     "**/.*",

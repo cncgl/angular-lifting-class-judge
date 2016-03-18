@@ -16,7 +16,14 @@
 
 
 var boot;
-boot = require("../core/boot");
+boot = require('../core/boot');
+
+// require('../bower_components/angular-animate');
+// require('../bower_components/angular-aria');
+// require('../bower_components/angular-messages');
+// require('../bower_components/angular-material');
+
+// boot(['ngMaterial']);
 boot();
 
 /**
