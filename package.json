@@ -16,6 +16,8 @@
   "devDependencies": {
     "angcli": "0.0.7",
     "bower-webpack-plugin": "^0.1.5",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.1.7",
@@ -27,6 +29,7 @@
     "ng-core-addons": "git+https://github.com/cncgl/ng-core-addons.git#hotfix_postinstall",
     "ngcli-rework-css": "*",
     "ngcli-task-runner": "*",
+    "style-loader": "^0.13.0",
     "webpack": "^1.5.1"
   }
 }
