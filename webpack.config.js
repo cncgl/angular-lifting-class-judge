@@ -1,4 +1,4 @@
-var path = require('path');
+// var path = require('path');
 var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 var BowerWebpackPlugin = require('bower-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -13,11 +13,10 @@ var bower = new BowerWebpackPlugin({
   excludes:           [/.*\.css/]
 });
 
-var extractCSS = new ExtractTextPlugin(
-  '[name].css',
-  // "styles/[name].[chunkhash].css",
-  { allChunks: true }
-);
+// var extractCSS = new ExtractTextPlugin(
+//   '[name].css',
+//   { allChunks: true }
+// );
 
 module.exports = {
   entry: {
@@ -29,18 +28,7 @@ module.exports = {
       {
         test: [/.*\/core\/.*\.js$/,/.*\/app\/.*\.js$/],
         loader: "ng-cli-transformer"
-      },
-      // {
-      //   test: /\.css$/,
-      //   loader: extractCSS.extract('style-loader', 'css-loader?modules&localIdentName=[name]__[local]&importLoaders=1', 'postcss-loader'),
-      //   include: path.join(__dirname, 'app')
-      // },
-      // {
-      //   test: /\.css$/,
-      //   loader: extractCSS.extract('style-loader', 'css-loader'),
-      //   // loader: "!style-loader!css-loader",
-      //   exclude: path.join(__dirname, 'app')
-      // }
+      }
     ]
   },
   cache: true,
@@ -50,6 +38,6 @@ module.exports = {
   },
   module: {
   },
-  plugins: [annotate, bower, extractCSS],
-  debug: true
+  // plugins: [annotate, bower, extractCSS],
+  plugins: [annotate, bower]
 };

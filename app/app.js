@@ -54,5 +54,5 @@ boot(['ngMaterial']);
 
 /**
   Uncomment when you create controllers
-  require("./controllers");
 */
+require("./controllers");
