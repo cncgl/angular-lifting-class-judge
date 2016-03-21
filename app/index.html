@@ -14,55 +14,74 @@
   <![endif]-->
 </head>
 <body>
-  Welcome to ngCli, you are using UI Router template
-  <md-list ng-controller="ListController" ng-cloak>
-    <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
-      Checkbox 1: {{ data.cb1 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb2" aria-label="Checkbox 2">
-      Checkbox 2: {{ data.cb2 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb3" aria-label="Checkbox 3">
-      Checkbox 3: {{ data.cb3 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb4" aria-label="Checkbox 4">
-      Checkbox 4: {{ data.cb4 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb5" aria-label="Checkbox 5">
-      Checkbox 5: {{ data.cb5 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb6" aria-label="Checkbox 6">
-      Checkbox 6: {{ data.cb6 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb7" aria-label="Checkbox 7">
-      Checkbox 7: {{ data.cb7 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb8" aria-label="Checkbox 8">
-      Checkbox 8: {{ data.cb8 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb9" aria-label="Checkbox 9">
-      Checkbox 9: {{ data.cb9 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb10" aria-label="Checkbox 10">
-      Checkbox 10: {{ data.cb10 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb11" aria-label="Checkbox 11">
-      Checkbox 11: {{ data.cb11 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb12" aria-label="Checkbox 12">
-      Checkbox 12: {{ data.cb12 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb13" aria-label="Checkbox 13">
-      Checkbox 13: {{ data.cb13 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb14" aria-label="Checkbox 14">
-      Checkbox 14: {{ data.cb14 }}
-    </md-checkbox>
-    <md-checkbox ng-model="data.cb15" aria-label="Checkbox 15">
-      Checkbox 15: {{ data.cb15 }}
-    </md-checkbox>
-  </md-list>
-
+  <div layout="column">
+    <md-radio-group ng-model="data.group1">
+      <md-radio-button value="0">6級〜1級</md-radio-button>
+      <md-radio-button value="1">初段〜3段</md-radio-button>
+    </md-radio-group>
+    <md-list ng-controller="ListController" ng-cloak>
+      <md-list-item>
+        Checkbox 1: {{ data.cb1 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb1" aria-label="Checkbox 1"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 2: {{ data.cb2 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb2" aria-label="Checkbox 2"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 3: {{ data.cb3 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb3" aria-label="Checkbox 3"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 4: {{ data.cb4 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb4" aria-label="Checkbox 4"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 5: {{ data.cb5 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb5" aria-label="Checkbox 5"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 6: {{ data.cb6 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb6" aria-label="Checkbox 6"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 7: {{ data.cb7 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb7" aria-label="Checkbox 7"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 8: {{ data.cb8 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb8" aria-label="Checkbox 8"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 9: {{ data.cb9 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb9" aria-label="Checkbox 9"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 10: {{ data.cb10 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb10" aria-label="Checkbox 10"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 11: {{ data.cb11 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb11" aria-label="Checkbox 11"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 12: {{ data.cb12 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb12" aria-label="Checkbox 12"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 13: {{ data.cb13 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb13" aria-label="Checkbox 13"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 14: {{ data.cb14 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb14" aria-label="Checkbox 14"></md-checkbox>
+      </md-list-item>
+      <md-list-item>
+        Checkbox 15: {{ data.cb15 }}
+        <md-checkbox class="md-secondary" ng-model="data.cb15" aria-label="Checkbox 15"></md-checkbox>
+      </md-list-item>
+    </md-list>
+  </div>
 
   <div ui-view></div>
   <script src="vendors.js"></script>
