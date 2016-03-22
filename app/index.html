@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title></title>
+  <title>奨励会昇降級判定システム</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./vendors.css">
@@ -14,73 +14,114 @@
   <![endif]-->
 </head>
 <body>
-  <div layout="column">
-    <md-radio-group ng-model="data.group1">
-      <md-radio-button value="0">6級〜1級</md-radio-button>
-      <md-radio-button value="1">初段〜3段</md-radio-button>
-    </md-radio-group>
-    <md-list ng-controller="ListController" ng-cloak>
-      <md-list-item>
-        Checkbox 1: {{ data.cb1 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb1" aria-label="Checkbox 1"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 2: {{ data.cb2 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb2" aria-label="Checkbox 2"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 3: {{ data.cb3 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb3" aria-label="Checkbox 3"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 4: {{ data.cb4 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb4" aria-label="Checkbox 4"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 5: {{ data.cb5 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb5" aria-label="Checkbox 5"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 6: {{ data.cb6 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb6" aria-label="Checkbox 6"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 7: {{ data.cb7 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb7" aria-label="Checkbox 7"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 8: {{ data.cb8 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb8" aria-label="Checkbox 8"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 9: {{ data.cb9 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb9" aria-label="Checkbox 9"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 10: {{ data.cb10 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb10" aria-label="Checkbox 10"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 11: {{ data.cb11 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb11" aria-label="Checkbox 11"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 12: {{ data.cb12 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb12" aria-label="Checkbox 12"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 13: {{ data.cb13 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb13" aria-label="Checkbox 13"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 14: {{ data.cb14 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb14" aria-label="Checkbox 14"></md-checkbox>
-      </md-list-item>
-      <md-list-item>
-        Checkbox 15: {{ data.cb15 }}
-        <md-checkbox class="md-secondary" ng-model="data.cb15" aria-label="Checkbox 15"></md-checkbox>
-      </md-list-item>
-    </md-list>
+  <div layout="row" ng-controller="ListController" ng-cloak>
+    <div layout="column" flex="33" flex-offset="33">
+      <h2 id="title" class="md-title">奨励会昇降級判定システム</h2>
+
+      <!--div class="social-area">
+        <ul class="social-button">
+          <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <li class="sc-fb"><div class="fb-like" data-href="https://syncer.jp" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
+          <li><div data-href="https://syncer.jp" class="g-plusone" data-size="tall"></div></li>
+          <li><a href="http://b.hatena.ne.jp/entry/https://syncer.jp" class="hatena-bookmark-button"
+                 data-hatena-bookmark-layout="vertical-balloon" data-hatena-bookmark-lang="ja"
+                 title="このエントリーをはてなブックマークに追加">
+            <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border:none;" /></a></li>
+          <li><a data-save-url="https://syncer.jp" data-pocket-label="pocket" data-pocket-count="vertical" class="pocket-btn"
+                 data-lang="en"></a></li>
+        </ul>
+        <div id="fb-root"></div>
+      </div-->
+
+      <p>直近の白星にチェックを入れてください。</p>
+      <md-radio-group ng-model="data.group1" id="selector">
+        <md-radio-button value="0">6級〜1級</md-radio-button>
+        <md-radio-button value="1">初段〜3段</md-radio-button>
+      </md-radio-group>
+      <md-list>
+        <md-list-item ng-hide="data.group1==0">
+          直近18局前: {{ data.cb[0] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[0]" aria-label="Checkbox 1"></md-checkbox>
+        </md-list-item>
+        <md-list-item ng-hide="data.group1==0">
+          直近17局前: {{ data.cb[1] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[1]" aria-label="Checkbox 2"></md-checkbox>
+        </md-list-item>
+        <md-list-item ng-hide="data.group1==0">
+          直近16局前: {{ data.cb[2] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[2]" aria-label="Checkbox 3"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近15局前: {{ data.cb[3] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[3]" aria-label="Checkbox 4"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近14局前: {{ data.cb[4] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[4]" aria-label="Checkbox 5"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近13局前: {{ data.cb[5] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[5]" aria-label="Checkbox 6"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近12局前: {{ data.cb[6] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[6]" aria-label="Checkbox 7"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近11局前: {{ data.cb[7] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[7]" aria-label="Checkbox 8"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近10局前: {{ data.cb[8] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[8]" aria-label="Checkbox 9"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近9局前: {{ data.cb[9] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[9]" aria-label="Checkbox 10"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近8局前: {{ data.cb[10] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[10]" aria-label="Checkbox 11"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近7局前: {{ data.cb[11] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[11]" aria-label="Checkbox 12"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近6局前: {{ data.cb[12] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[12]" aria-label="Checkbox 13"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近5局前: {{ data.cb[13] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[13]" aria-label="Checkbox 14"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近4局前: {{ data.cb[14] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[14]" aria-label="Checkbox 15"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近3局前: {{ data.cb[15] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[15]" aria-label="Checkbox 16"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近２局前: {{ data.cb[16] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[16]" aria-label="Checkbox 17"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          前局: {{ data.cb[17] ? '●' : '○' }}
+          <md-checkbox class="md-secondary" ng-model="data.cb[17]" aria-label="Checkbox 18"></md-checkbox>
+        </md-list-item>
+      </md-list>
+      <hr/>
+      <p>{{ data.win() }} 勝 {{ data.lose() }} 敗</p>
+      <p>{{ data.rest() }}</p>
+    </div>
+    <div layout="column" flex>
+      <a href="https://github.com/cncgl/angular-lifting-class-judge#fork-destination-box">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+      </a>
+    </div>
   </div>
 
   <div ui-view></div>

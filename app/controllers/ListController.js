@@ -10,8 +10,51 @@
 /* @ngInject */
 
 (function() {
-  module.exports = function($scope, $mdDialog) {
+  module.exports = function($scope) {
     $scope.greeting = "Hello world from ListController";
+    $scope.data = {
+      group1: 0,
+      cb: [false, false ,false, false, false, false,
+        false, false ,false, false, false, false,
+        false, false ,false, false, false, false],
+      win: function() {
+        var count = 0, i;
+        if(this.group1==0) {
+          for(i=3; i<18; i++) {
+            if(this.cb[i]) count+=1;
+          }
+        } else {
+          for(i=0; i<18; i++) {
+            if(this.cb[i]) count+=1;
+          }
+        }
+        return count;
+      },
+      lose: function() {
+        return this.group1==0 ? 15-this.win() : 18-this.win();
+      },
+      rest: function() {
+        var result = '', i;
+        if(this.group1==0) {
+          // 6連勝 直近の連勝数を取得する
+          var continue_win = 0;
+          for(i=17; i>11; i--) {
+            if(!this.cb[i]) break;
+            continue_win += 1;
+          }
+          if(continue_win>=6) {
+            result = 'すでに６連勝しています';
+          } else {
+            result = '現在' + continue_win + '連勝中です。残り '+(6-continue_win)+'で昇級です';
+          }
+          // 9勝３敗
+          
+        } else {
+
+        }
+        return result;
+      }
+    }
   };
 
 }).call(this);

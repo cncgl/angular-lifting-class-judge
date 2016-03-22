@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - 5.9
+env:
+  global:
+    - CXX=g++-4.8
+    - GIT_COMMITTER_NAME=cncgl
+    - GIT_COMMITTER_EMAIL=concigel@gmail.com
+    - GIT_AUTHOR_NAME=cncgl
+    - GIT_AUTHOR_EMAIL=concigel@gmail.com
+    - secure: gisKGXmQ2TxgypUyi+T7whlaOb+NjVE9SCHRcTiVc6X76d1qfTmFiS+z2wY0me5cLydXqLygN6yKN9LdGgenGPY4KwC+e/9tvEi2CEZOd2dJgsOvPM8rs8earZI2ACZnyAnRkhwLm8PTF1WvjDaAqkikWulPtOTuVxzFDJbs/4V+vSLI8Run++2f/TXCEEipnk3YPnQBoe3wjCfS/vYaJppgO3riNORBQmQhYOuFywMF8TiLZ36YJkIOV6nl57CDjXii1oUd0UhwqYcM7omrTBAZxp8KtBzJZO6fve9Pj4TSWi98EBEBB9J7NnM+B2Tql9iJ1M3HU29UXzDXCkY45ZqvdN5kD3Cmj7zPJIx/gYRcLT4FGzTkQXgZjBQp8EXvq/ZN6e/TnF7ofLooeO27G2WGkFrjhNZ/GlHv7GEq+Vbjb8Xh7C6wK0qsOMcjbKK3RuXj80i58kZ4jo29qDuSRmezN2j1AFqpkr5uIDhsf6sBRF13sfx7i4KWkEUYaYlnqAONfbFqZcU6jj2TjLNmvT4SKCGnxBRXgwubbAtq3gIHwS+8U/RKE/t+Udfa8hcYnVEx1BuEXiBlP8Eqd1DisTgQrKm/MBZBGn78kkI+VMJG05WK5LaN3212ZJvfR6wrI8nDXjT/SZ2/LjYG32SZ+IQ6gwkmfpkXvAXTEZAHMXQ=
+before_script:
+  - npm i -g angcli bower
+  - npm install
+script:
+  - ng build
+  - cd dist
+  - git init
+  - git add -A
+  - git commit -m 'Deploy to GitHub Pages'
+after_success:
+  - '[ $GH_TOKEN ] && git push --force --quiet https://$GH_TOKEN@github.com/cncgl/angular-lifting-class-judge.git master:gh-pages 2> /dev/null'
