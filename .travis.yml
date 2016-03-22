@@ -12,6 +12,7 @@ env:
 before_script:
   - npm i -g angcli bower
   - npm install
+  - bower i
 script:
   - ng build
   - cd dist
