@@ -41,75 +41,75 @@
       </md-radio-group>
       <md-list>
         <md-list-item ng-hide="data.group1==0">
-          直近18局前: {{ data.cb[0] ? '●' : '○' }}
+          直近18局前: <span ng-show="data.cb[0]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[0]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[0]" aria-label="Checkbox 1"></md-checkbox>
         </md-list-item>
         <md-list-item ng-hide="data.group1==0">
-          直近17局前: {{ data.cb[1] ? '●' : '○' }}
+          直近17局前: <span ng-show="data.cb[1]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[1]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[1]" aria-label="Checkbox 2"></md-checkbox>
         </md-list-item>
         <md-list-item ng-hide="data.group1==0">
-          直近16局前: {{ data.cb[2] ? '●' : '○' }}
+          直近16局前: <span ng-show="data.cb[2]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[2]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[2]" aria-label="Checkbox 3"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近15局前: {{ data.cb[3] ? '●' : '○' }}
+          直近15局前: <span ng-show="data.cb[3]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[3]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[3]" aria-label="Checkbox 4"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近14局前: {{ data.cb[4] ? '●' : '○' }}
+          直近14局前: <span ng-show="data.cb[4]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[4]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[4]" aria-label="Checkbox 5"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近13局前: {{ data.cb[5] ? '●' : '○' }}
+          直近13局前: <span ng-show="data.cb[5]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[5]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[5]" aria-label="Checkbox 6"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近12局前: {{ data.cb[6] ? '●' : '○' }}
+          直近12局前: <span ng-show="data.cb[6]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[6]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[6]" aria-label="Checkbox 7"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近11局前: {{ data.cb[7] ? '●' : '○' }}
+          直近11局前: <span ng-show="data.cb[7]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[7]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[7]" aria-label="Checkbox 8"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近10局前: {{ data.cb[8] ? '●' : '○' }}
+          直近10局前: <span ng-show="data.cb[8]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[8]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[8]" aria-label="Checkbox 9"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近9局前: {{ data.cb[9] ? '●' : '○' }}
+          直近9局前: <span ng-show="data.cb[9]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[9]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[9]" aria-label="Checkbox 10"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近8局前: {{ data.cb[10] ? '●' : '○' }}
+          直近8局前: <span ng-show="data.cb[10]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[10]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[10]" aria-label="Checkbox 11"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近7局前: {{ data.cb[11] ? '●' : '○' }}
+          直近7局前: <span ng-show="data.cb[11]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[11]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[11]" aria-label="Checkbox 12"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近6局前: {{ data.cb[12] ? '●' : '○' }}
+          直近6局前: <span ng-show="data.cb[12]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[12]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[12]" aria-label="Checkbox 13"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近5局前: {{ data.cb[13] ? '●' : '○' }}
+          直近5局前: <span ng-show="data.cb[13]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[13]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[13]" aria-label="Checkbox 14"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近4局前: {{ data.cb[14] ? '●' : '○' }}
+          直近4局前: <span ng-show="data.cb[14]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[14]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[14]" aria-label="Checkbox 15"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近3局前: {{ data.cb[15] ? '●' : '○' }}
+          直近3局前: <span ng-show="data.cb[15]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[15]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[15]" aria-label="Checkbox 16"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近２局前: {{ data.cb[16] ? '●' : '○' }}
+          直近２局前: <span ng-show="data.cb[16]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[16]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[16]" aria-label="Checkbox 17"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          前局: {{ data.cb[17] ? '●' : '○' }}
+          前局: <span ng-show="data.cb[17]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[17]"><i class="fa fa-circle-o"></i></span>
           <md-checkbox class="md-secondary" ng-model="data.cb[17]" aria-label="Checkbox 18"></md-checkbox>
         </md-list-item>
       </md-list>
