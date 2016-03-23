@@ -16,45 +16,161 @@
       group1: 0,
       cb: [false, false ,false, false, false, false,
         false, false ,false, false, false, false,
-        false, false ,false, false, false, false],
+        false, false ,false, false, false, false,
+        false, false ,false, false, false, false, false],
       win: function() {
         var count = 0, i;
         if(this.group1==0) {
-          for(i=3; i<18; i++) {
+          for(i=4; i<this.cb.length; i++) {
             if(this.cb[i]) count+=1;
           }
         } else {
-          for(i=0; i<18; i++) {
+          for(i=0; i<this.cb.length; i++) {
             if(this.cb[i]) count+=1;
           }
         }
         return count;
       },
       lose: function() {
-        return this.group1==0 ? 15-this.win() : 18-this.win();
+        return this.group1==0 ? this.cb.length-4-this.win() : this.cb.length-this.win();
       },
       rest: function() {
-        var result = '', i;
-        if(this.group1==0) {
-          // 6連勝 直近の連勝数を取得する
-          var continue_win = 0;
-          for(i=17; i>11; i--) {
-            if(!this.cb[i]) break;
-            continue_win += 1;
-          }
-          if(continue_win>=6) {
-            result = 'すでに６連勝しています';
+        var result = [], i;
+
+        var res = checkUpgraded(this.cb, this.group1);
+        if(res.state) result.push(res.msg);
+
+        // 6連勝 直近の連勝数を取得する
+        var win_count = 0, lose_count = 0;
+        for(i=17; i>11; i--) {
+          if(!this.cb[i]) break;
+          win_count += 1;
+        }
+        if(win_count>=6) {
+          result.push('すでに６連勝しています');
+        } else {
+          result.push('現在' + win_count + '連勝中です。残り '+(6-win_count)+'連勝で昇級です');
+        }
+        // 9勝３敗
+        for(i=17; i>8; i--) {
+          if(!this.cb[i]) {
+            if(lose_count>3) break;
+            else lose_count += 1;
           } else {
-            result = '現在' + continue_win + '連勝中です。残り '+(6-continue_win)+'で昇級です';
+            if(win_count>9) break;
+            else win_count += 1;
           }
-          // 9勝３敗
-          
+        }
+        if(win_count>9) {
+          result.push('すでに'+ win_count +'勝'+ lose_count + '敗です');
         } else {
 
         }
+
         return result;
       }
     }
+  };
+  // すでに昇級を満たしていないかチェックする。
+  var checkUpgraded = function(data, rank) {
+    console.log(data);
+    var already = false, msg = '', win_count = 0, i, j;
+
+    if(rank == 0) {
+      // 6連勝を含むか
+      for (i = data.length; i >= 6; i--) {
+        if (data[i - 1] && data[i - 2] && data[i - 3] && data[i - 4] && data[i - 5] && data[i - 6]) {
+          already = true;
+          msg = '６連勝以上の戦績があります。';
+          break;
+        }
+      }
+      // 9勝３敗を含むか
+      if (!already) {
+        for (i = data.length; i >= 12; i--) {
+          win_count = 0;
+          for (j = 0; j < 12; j++) {
+            if (data[i - 1 - j]) {
+              if (win_count < 9) win_count++;
+              if (win_count == 9) {
+                already = true;
+                msg = '9勝3敗以上の戦績があります。';
+                break;
+              }
+            }
+          }
+          if (already) break;
+        }
+      }
+      // 11勝4敗を含むか
+      win_count = 0;
+      if (!already) {
+        for (i = data.length; i >= 15; i--) {
+          win_count = 0;
+          for (j = 0; j < 15; j++) {
+            if (data[i - 1 - j]) {
+              if (win_count < 11) win_count++;
+              if (win_count == 11) {
+                already = true;
+                msg = '11勝4敗以上の戦績があります。';
+                break;
+              }
+            }
+          }
+          if (already) break;
+        }
+      }
+      // 13勝5敗を含むか
+      win_count = 0;
+      if (!already) {
+        for (i = data.length; i >= 18; i--) {
+          win_count = 0;
+          for (j = 0; j < 18; j++) {
+            if (data[i - 1 - j]) {
+              if (win_count < 13) win_count++;
+              if (win_count == 13) {
+                already = true;
+                msg = '13勝5敗以上の戦績があります。';
+                break;
+              }
+            }
+          }
+          if (already) break;
+        }
+      }
+      // １５勝６敗を含むか
+      win_count = 0;
+      if (!already) {
+        for (i = data.length; i >= 21; i--) {
+          win_count = 0;
+          for (j = 0; j < 21; j++) {
+            if (data[i - 1 - j]) {
+              if (win_count < 15) win_count++;
+              if (win_count == 15) {
+                already = true;
+                msg = '15勝6敗以上の戦績があります。';
+                break;
+              }
+            }
+          }
+          if (already) break;
+        }
+      }
+    } else {
+      // 8連勝を含むか
+      for( i = data.length; i >= 8; i--) {
+        if (data[i-1] && data[i-2] && data[i-3] && data[i-4] && data[i-5] && data[i-6] && data[i-7]) {
+          already = true;
+          msg = '8連勝以上の戦績があります。';
+          break;
+        }
+      }
+      //
+    }
+    return {state: already, msg: msg};
+  };
+  var scores = function(data) {
+
   };
 
 }).call(this);

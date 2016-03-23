@@ -34,88 +34,116 @@
         <div id="fb-root"></div>
       </div-->
 
-      <p>直近の白星にチェックを入れてください。</p>
+      <p>直近の白星にチェックを入れてください。前回昇級した対局以降のみ入力してください。</p>
       <md-radio-group ng-model="data.group1" id="selector">
         <md-radio-button value="0">6級〜1級</md-radio-button>
         <md-radio-button value="1">初段〜3段</md-radio-button>
       </md-radio-group>
       <md-list>
         <md-list-item ng-hide="data.group1==0">
-          直近18局前: <span ng-show="data.cb[0]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[0]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[0]" aria-label="Checkbox 1"></md-checkbox>
+          直近25局前: <span ng-show="!data.cb[0]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[0]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[0]" aria-label="Checkbox 0"></md-checkbox>
         </md-list-item>
         <md-list-item ng-hide="data.group1==0">
-          直近17局前: <span ng-show="data.cb[1]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[1]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[1]" aria-label="Checkbox 2"></md-checkbox>
+          直近24局前: <span ng-show="!data.cb[1]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[1]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[1]" aria-label="Checkbox 1"></md-checkbox>
         </md-list-item>
         <md-list-item ng-hide="data.group1==0">
-          直近16局前: <span ng-show="data.cb[2]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[2]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[2]" aria-label="Checkbox 3"></md-checkbox>
+          直近23局前: <span ng-show="!data.cb[2]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[2]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[2]" aria-label="Checkbox 2"></md-checkbox>
+        </md-list-item>
+        <md-list-item ng-hide="data.group1==0">
+          直近22局前: <span ng-show="!data.cb[3]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[3]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[3]" aria-label="Checkbox 3"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近15局前: <span ng-show="data.cb[3]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[3]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[3]" aria-label="Checkbox 4"></md-checkbox>
+          直近21局前: <span ng-show="!data.cb[4]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[4]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[4]" aria-label="Checkbox 4"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近14局前: <span ng-show="data.cb[4]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[4]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[4]" aria-label="Checkbox 5"></md-checkbox>
+          直近20局前: <span ng-show="!data.cb[5]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[5]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[5]" aria-label="Checkbox 5"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近13局前: <span ng-show="data.cb[5]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[5]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[5]" aria-label="Checkbox 6"></md-checkbox>
+          直近19局前: <span ng-show="!data.cb[6]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[6]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[6]" aria-label="Checkbox 6"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近12局前: <span ng-show="data.cb[6]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[6]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[6]" aria-label="Checkbox 7"></md-checkbox>
+          直近18局前: <span ng-show="!data.cb[7]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[7]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[7]" aria-label="Checkbox 7"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近11局前: <span ng-show="data.cb[7]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[7]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[7]" aria-label="Checkbox 8"></md-checkbox>
+          直近17局前: <span ng-show="!data.cb[8]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[8]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[8]" aria-label="Checkbox 8"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近10局前: <span ng-show="data.cb[8]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[8]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[8]" aria-label="Checkbox 9"></md-checkbox>
+          直近16局前: <span ng-show="!data.cb[9]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[9]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[9]" aria-label="Checkbox 9"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近9局前: <span ng-show="data.cb[9]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[9]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[9]" aria-label="Checkbox 10"></md-checkbox>
+          直近15局前: <span ng-show="!data.cb[10]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[10]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[10]" aria-label="Checkbox 10"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近8局前: <span ng-show="data.cb[10]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[10]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[10]" aria-label="Checkbox 11"></md-checkbox>
+          直近14局前: <span ng-show="!data.cb[11]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[11]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[11]" aria-label="Checkbox 11"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近7局前: <span ng-show="data.cb[11]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[11]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[11]" aria-label="Checkbox 12"></md-checkbox>
+          直近13局前: <span ng-show="!data.cb[12]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[12]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[12]" aria-label="Checkbox 12"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近6局前: <span ng-show="data.cb[12]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[12]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[12]" aria-label="Checkbox 13"></md-checkbox>
+          直近12局前: <span ng-show="!data.cb[13]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[13]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[13]" aria-label="Checkbox 13"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近5局前: <span ng-show="data.cb[13]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[13]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[13]" aria-label="Checkbox 14"></md-checkbox>
+          直近11局前: <span ng-show="!data.cb[14]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[14]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[14]" aria-label="Checkbox 14"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近4局前: <span ng-show="data.cb[14]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[14]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[14]" aria-label="Checkbox 15"></md-checkbox>
+          直近10局前: <span ng-show="!data.cb[15]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[15]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[15]" aria-label="Checkbox 15"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近3局前: <span ng-show="data.cb[15]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[15]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[15]" aria-label="Checkbox 16"></md-checkbox>
+          直近9局前: <span ng-show="!data.cb[16]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[16]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[16]" aria-label="Checkbox 16"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          直近２局前: <span ng-show="data.cb[16]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[16]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[16]" aria-label="Checkbox 17"></md-checkbox>
+          直近8局前: <span ng-show="!data.cb[17]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[17]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[17]" aria-label="Checkbox 17"></md-checkbox>
         </md-list-item>
         <md-list-item>
-          前局: <span ng-show="data.cb[17]"><i class="fa fa-circle"></i></span><span ng-show="!data.cb[17]"><i class="fa fa-circle-o"></i></span>
-          <md-checkbox class="md-secondary" ng-model="data.cb[17]" aria-label="Checkbox 18"></md-checkbox>
+          直近7局前: <span ng-show="!data.cb[18]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[18]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[18]" aria-label="Checkbox 18"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近6局前: <span ng-show="!data.cb[19]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[19]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[19]" aria-label="Checkbox 19"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近5局前: <span ng-show="!data.cb[20]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[20]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[20]" aria-label="Checkbox 20"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近4局前: <span ng-show="!data.cb[21]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[21]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[21]" aria-label="Checkbox 21"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近3局前: <span ng-show="!data.cb[22]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[22]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[22]" aria-label="Checkbox 22"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近２局前: <span ng-show="!data.cb[23]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[23]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[23]" aria-label="Checkbox 23"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          前局: <span ng-show="!data.cb[24]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[24]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[24]" aria-label="Checkbox 24"></md-checkbox>
         </md-list-item>
       </md-list>
       <hr/>
       <p>{{ data.win() }} 勝 {{ data.lose() }} 敗</p>
-      <p>{{ data.rest() }}</p>
+      <p ng-repeat="res in data.rest()">{{ res }}</p>
     </div>
     <div layout="column" flex>
       <a href="https://github.com/cncgl/angular-lifting-class-judge#fork-destination-box">

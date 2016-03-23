@@ -1,6 +1,8 @@
 # angular-lifting-class-judge
 奨励会の昇降級判定プログラム
 
+## Hosting
+[http://cncgl.github.io/angular-lifting-class-judge/](http://cncgl.github.io/angular-lifting-class-judge/)
 
 ## Install
 Install ang cli grobaly.
