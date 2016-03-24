@@ -11,6 +11,7 @@
 
 (function() {
   module.exports = function($scope) {
+    var vm = this;
     $scope.greeting = "Hello world from ListController";
     $scope.data = {
       group1: 0,
@@ -35,14 +36,14 @@
         return this.group1==0 ? this.cb.length-4-this.win() : this.cb.length-this.win();
       },
       rest: function() {
-        var result = [], i;
+        var results = [];
 
-        var res = checkUpgraded(this.cb, this.group1);
+        var res = vm.checkUpgraded(this.cb, this.group1);
         if(res.state) {
-          result.push(res.msg);
+          results.push(res.msg);
         } else {
-          var mes = score(this.cb, this.group1);
-          result = result.concat(mes.msg);
+          var arr = vm.score(this.cb, this.group1);
+          for(var i=0; i<arr.length; i++) results.push(arr[i].msg);
         }
 
         // 6連勝 直近の連勝数を取得する
@@ -74,207 +75,234 @@
         }
         */
 
-        return result;
+        return results;
       }
     }
-  };
-  // すでに昇級を満たしていないかチェックする。
-  var checkUpgraded = function(data, rank) {
-    console.log(data);
-    var already = false, msg = '', win_count = 0, i, j;
 
-    if(rank == 0) {
-      // 6連勝を含むか
-      for (i = data.length; i >= 6; i--) {
-        if (data[i - 1] && data[i - 2] && data[i - 3] && data[i - 4] && data[i - 5] && data[i - 6]) {
-          already = true;
-          msg = '６連勝以上の戦績があります。';
-          break;
-        }
-      }
-      // 9勝３敗を含むか
-      if (!already) {
-        for (i = data.length; i >= 12; i--) {
-          win_count = 0;
-          for (j = 0; j < 12; j++) {
-            if (data[i - 1 - j]) {
-              if (win_count < 9) win_count++;
-              if (win_count == 9) {
-                already = true;
-                msg = '9勝3敗以上の戦績があります。';
-                break;
-              }
-            }
-          }
-          if (already) break;
-        }
-      }
-      // 11勝4敗を含むか
-      win_count = 0;
-      if (!already) {
-        for (i = data.length; i >= 15; i--) {
-          win_count = 0;
-          for (j = 0; j < 15; j++) {
-            if (data[i - 1 - j]) {
-              if (win_count < 11) win_count++;
-              if (win_count == 11) {
-                already = true;
-                msg = '11勝4敗以上の戦績があります。';
-                break;
-              }
-            }
-          }
-          if (already) break;
-        }
-      }
-      // 13勝5敗を含むか
-      win_count = 0;
-      if (!already) {
-        for (i = data.length; i >= 18; i--) {
-          win_count = 0;
-          for (j = 0; j < 18; j++) {
-            if (data[i - 1 - j]) {
-              if (win_count < 13) win_count++;
-              if (win_count == 13) {
-                already = true;
-                msg = '13勝5敗以上の戦績があります。';
-                break;
-              }
-            }
-          }
-          if (already) break;
-        }
-      }
-      // １５勝６敗を含むか
-      win_count = 0;
-      if (!already) {
-        for (i = data.length; i >= 21; i--) {
-          win_count = 0;
-          for (j = 0; j < 21; j++) {
-            if (data[i - 1 - j]) {
-              if (win_count < 15) win_count++;
-              if (win_count == 15) {
-                already = true;
-                msg = '15勝6敗以上の戦績があります。';
-                break;
-              }
-            }
-          }
-          if (already) break;
-        }
-      }
-    } else {
-      // 8連勝を含むか
-      for( i = data.length; i >= 8; i--) {
-        if (data[i-1] && data[i-2] && data[i-3] && data[i-4] && data[i-5] && data[i-6] && data[i-7] && data[i-8]) {
-          already = true;
-          msg = '8連勝以上の戦績があります。';
-          break;
-        }
-      }
-      // 12勝４敗を含むか
-      if (!already) {
-        for (i = data.length; i >= 16; i--) {
-          win_count = 0;
-          for (j = 0; j < 16; j++ ) {
-            if (data[i - 1 - j]) {
-              if (win_count < 12) win_count++;
-              if (win_count == 12) {
-                already = true;
-                msg = '12勝4敗以上の戦績があります。';
-                break;
-              }
-            }
-          }
-          if (already) break;
-        }
-      }
-      // 14勝５敗を含むか
-      win_count = 0;
-      if (!already) {
-        for (i = data.length; i >= 19; i--) {
-          win_count = 0;
-          for (j = 0; j < 19; j++ ) {
-            if (data[i - 1 - j]) {
-              if (win_count < 14) win_count++;
-              if (win_count == 14) {
-                already = true;
-                msg = '14勝5敗以上の戦績があります。';
-                break;
-              }
-            }
-          }
-          if (already) break;
-        }
-      }
-      // 16勝６敗を含むか
-      win_count = 0;
-      if (!already) {
-        for (i = data.length; i >= 22; i--) {
-          win_count = 0;
-          for (j = 0; j < 22; j++ ) {
-            if (data[i - 1 - j]) {
-              if (win_count < 16) win_count++;
-              if (win_count == 16) {
-                already = true;
-                msg = '16勝6敗以上の戦績があります。';
-                break;
-              }
-            }
-          }
-          if (already) break;
-        }
-      }
-      // 18勝7敗を含むか
-      win_count = 0;
-      if (!already) {
-        for (i = data.length; i >= 25; i--) {
-          win_count = 0;
-          for (j = 0; j < 25; j++ ) {
-            if (data[i - 1 - j]) {
-              if (win_count < 18) win_count++;
-              if (win_count == 18) {
-                already = true;
-                msg = '18勝7敗以上の戦績があります。';
-                break;
-              }
-            }
-          }
-          if (already) break;
-        }
-      }
-    }
-    return {state: already, msg: msg};
-  };
-  // あと何勝で昇級か計算する
-  var score = function(data, rank) {
-    var msgs = [], win_count = lose_count = 0, i;
-    if (rank == 0) {
-      // 6連勝の可能性
-      for (i = data.length; i > data.length - 5; i--) {
-        if (data[i-1]) win_count++;
-        else {
-          msgs.push('現在' + win_count + '連勝中です。残り '+(6-win_count)+'連勝で昇級です');
-          break;
-        }
-      }
-      // 9勝３敗の可能性
-      win_count = 0;
-      for (i = data.length; i > data.length - 11; i--) {
-        if (data[i-1]) win_count++;
-        else {
-          lose_count++;
-          if (lose_count == 4) {
-            msgs.push('現在' + win_count + '勝中です。残り '+(9-win_count)+'連で昇級です');
+    // すでに昇級を満たしていないかチェックする。
+    this.checkUpgraded = function(data, rank) {
+      console.log(data);
+      var already = false, msg = '', win_count = 0, i, j;
+
+      if(rank == 0) {
+        // 6連勝を含むか
+        for (i = data.length; i >= 6; i--) {
+          if (data[i - 1] && data[i - 2] && data[i - 3] && data[i - 4] && data[i - 5] && data[i - 6]) {
+            already = true;
+            msg = '６連勝以上の戦績があります。';
             break;
           }
         }
+        // 9勝３敗を含むか
+        if (!already) {
+          for (i = data.length; i >= 12; i--) {
+            win_count = 0;
+            for (j = 0; j < 12; j++) {
+              if (data[i - 1 - j]) {
+                if (win_count < 9) win_count++;
+                if (win_count == 9) {
+                  already = true;
+                  msg = '9勝3敗以上の戦績があります。';
+                  break;
+                }
+              }
+            }
+            if (already) break;
+          }
+        }
+        // 11勝4敗を含むか
+        win_count = 0;
+        if (!already) {
+          for (i = data.length; i >= 15; i--) {
+            win_count = 0;
+            for (j = 0; j < 15; j++) {
+              if (data[i - 1 - j]) {
+                if (win_count < 11) win_count++;
+                if (win_count == 11) {
+                  already = true;
+                  msg = '11勝4敗以上の戦績があります。';
+                  break;
+                }
+              }
+            }
+            if (already) break;
+          }
+        }
+        // 13勝5敗を含むか
+        win_count = 0;
+        if (!already) {
+          for (i = data.length; i >= 18; i--) {
+            win_count = 0;
+            for (j = 0; j < 18; j++) {
+              if (data[i - 1 - j]) {
+                if (win_count < 13) win_count++;
+                if (win_count == 13) {
+                  already = true;
+                  msg = '13勝5敗以上の戦績があります。';
+                  break;
+                }
+              }
+            }
+            if (already) break;
+          }
+        }
+        // １５勝６敗を含むか
+        win_count = 0;
+        if (!already) {
+          for (i = data.length; i >= 21; i--) {
+            win_count = 0;
+            for (j = 0; j < 21; j++) {
+              if (data[i - 1 - j]) {
+                if (win_count < 15) win_count++;
+                if (win_count == 15) {
+                  already = true;
+                  msg = '15勝6敗以上の戦績があります。';
+                  break;
+                }
+              }
+            }
+            if (already) break;
+          }
+        }
+      } else {
+        // 8連勝を含むか
+        for( i = data.length; i >= 8; i--) {
+          if (data[i-1] && data[i-2] && data[i-3] && data[i-4] && data[i-5] && data[i-6] && data[i-7] && data[i-8]) {
+            already = true;
+            msg = '8連勝以上の戦績があります。';
+            break;
+          }
+        }
+        // 12勝４敗を含むか
+        if (!already) {
+          for (i = data.length; i >= 16; i--) {
+            win_count = 0;
+            for (j = 0; j < 16; j++ ) {
+              if (data[i - 1 - j]) {
+                if (win_count < 12) win_count++;
+                if (win_count == 12) {
+                  already = true;
+                  msg = '12勝4敗以上の戦績があります。';
+                  break;
+                }
+              }
+            }
+            if (already) break;
+          }
+        }
+        // 14勝５敗を含むか
+        win_count = 0;
+        if (!already) {
+          for (i = data.length; i >= 19; i--) {
+            win_count = 0;
+            for (j = 0; j < 19; j++ ) {
+              if (data[i - 1 - j]) {
+                if (win_count < 14) win_count++;
+                if (win_count == 14) {
+                  already = true;
+                  msg = '14勝5敗以上の戦績があります。';
+                  break;
+                }
+              }
+            }
+            if (already) break;
+          }
+        }
+        // 16勝６敗を含むか
+        win_count = 0;
+        if (!already) {
+          for (i = data.length; i >= 22; i--) {
+            win_count = 0;
+            for (j = 0; j < 22; j++ ) {
+              if (data[i - 1 - j]) {
+                if (win_count < 16) win_count++;
+                if (win_count == 16) {
+                  already = true;
+                  msg = '16勝6敗以上の戦績があります。';
+                  break;
+                }
+              }
+            }
+            if (already) break;
+          }
+        }
+        // 18勝7敗を含むか
+        win_count = 0;
+        if (!already) {
+          for (i = data.length; i >= 25; i--) {
+            win_count = 0;
+            for (j = 0; j < 25; j++ ) {
+              if (data[i - 1 - j]) {
+                if (win_count < 18) win_count++;
+                if (win_count == 18) {
+                  already = true;
+                  msg = '18勝7敗以上の戦績があります。';
+                  break;
+                }
+              }
+            }
+            if (already) break;
+          }
+        }
       }
+      return {state: already, msg: msg};
+    };
+    // あと何勝で昇級か計算する
+    this.score = function(data, rank) {
+      var results = [], result = {},
+        win_count = 0, lose_count = 0, win_rest = 0, lose_rest = 0, i = 0, j = 0;
+      if (rank == 0) {
+        // 6連勝の可能性
+        for (i = data.length; i > data.length - 5; i--) {
+          if (data[i-1]) win_count++;
+          else {
+            win_rest = 6 - win_count;
+            lose_count = data.length - win_count;
+            lose_rest = 0;
+            result = {
+              win: win_count,
+              win_rest: wein_rest,
+              lose: lose_count,
+              lose_rest: lose_rest,
+              msg: ('現在' + win_count + '連勝中です。残り '+ win_rest +'連勝で昇級です')
+            };
+            results.push(result);
+            break;
+          }
+        }
+        // 9勝３敗の可能性
+        win_count = 0;
+        for (i = data.length; i > data.length - 11; i--) {
+          if (data[i-1]) win_count++;
+          else {
+            lose_count++;
+            // 4敗目を探し、その直前(data[i])できる。
+            if (lose_count == 4) {
+              win_rest = 9 - win_count;
+              // 末尾の負けは削除する
+              var delta = 0;
+              for(j = i; j < data.length; j++) {
+                if(!data[j]) delta++;
+                else break;
+              }
+              result = {
+                win: win_count,
+                win_rest: 9 - win_count,
+                lose: 4 - delta,
+                lose_rest: delta,
+                msg: ('現在' + win_count + '勝' + lose_count + '敗中です。残り '+ win_rest +'勝' + lose_rest + '敗以上で昇級です')
+              };
+              // results.push('現在' + win_count + '勝中です。残り '+(9-win_count)+'連で昇級です');
+              results.push(result);
+              break;
+            }
+          }
+        }
 
-    } else {
+      } else {
 
-    }
-    return {msg: msgs};
+      }
+      return results;
+    };
   };
-
 }).call(this);

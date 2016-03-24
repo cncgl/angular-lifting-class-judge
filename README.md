@@ -2,6 +2,8 @@
 
 奨励会の昇降級判定プログラム
 
+[![Build Status](https://travis-ci.org/cncgl/angular-lifting-class-judge.svg?branch=master)](https://travis-ci.org/cncgl/angular-lifting-class-judge)
+
 ## Hosting
 
 [http://cncgl.github.io/angular-lifting-class-judge/](http://cncgl.github.io/angular-lifting-class-judge/)

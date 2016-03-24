@@ -34,18 +34,16 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-chai',
       'karma-webpack',
-      //'karma-chrome-launcher'
+      // 'karma-chrome-launcher',
       'karma-phantomjs-launcher'
     ],
     reporters: ['mocha'],
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
     autoWatch: true,
-    // autoWatch: false,
     // browsers: ['Chrome'],
     browsers: ['PhantomJS'],
-    // singleRun: false
     singleRun: true
   });
 };
