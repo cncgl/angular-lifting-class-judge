@@ -15,9 +15,10 @@ before_script:
   - bower i
 script:
   - ng build
+  - npm test
+after_success:
   - cd dist
   - git init
   - git add -A
   - git commit -m 'Deploy to GitHub Pages'
-after_success:
   - '[ $GH_TOKEN ] && git push --force --quiet https://$GH_TOKEN@github.com/cncgl/angular-lifting-class-judge.git master:gh-pages 2> /dev/null'

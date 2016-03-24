@@ -16,6 +16,6 @@ describe('Controller: ListController', function () {
   }));
 
   it('should attach greeting to scope', function () {
-    expect(scope.greeting).toBe('Hello world from ListController');
+    expect(scope.greeting).to.equal('Hello world from ListController');
   });
 });

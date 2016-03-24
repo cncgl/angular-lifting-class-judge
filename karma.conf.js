@@ -11,13 +11,13 @@ var webpackConfig = require("./webpack.config.js");
 
 module.exports = function(config) {
   config.set({
-    basePath: 'lift),
-    frameworks: ['jasmine'],
+    basePath: '.',
+    frameworks: ['mocha', 'chai'],
     files: [
       'vendors/vendors.js',
-      '../app/app.js',
-      '../bower_components/angular-mocks/angular-mocks.js',
-      '../tests/**/*.js'
+      'app/app.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      'tests/**/*.js'
     ],
     preprocessors: {
       'vendors/vendors.js': ['webpack'],
@@ -31,16 +31,21 @@ module.exports = function(config) {
     },
     plugins:[
       'karma-mocha-reporter',
-      'karma-jasmine',
+      'karma-mocha',
+      'karma-chai',
       'karma-webpack',
-      'karma-chrome-launcher'
+      //'karma-chrome-launcher'
+      'karma-phantomjs-launcher'
     ],
     reporters: ['mocha'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false
+    // autoWatch: false,
+    // browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
+    // singleRun: false
+    singleRun: true
   });
 };
