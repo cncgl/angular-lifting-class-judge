@@ -13,18 +13,48 @@ describe('Controller: ListController', function () {
     ListController = $controller('ListController', { $scope: scope });
   }));
 
-  it('should attach greeting to scope', function () {
-    expect(scope.greeting).to.equal('Hello world from ListController');
+  // it('should attach greeting to scope', function () {
+  //   expect(scope.greeting).to.equal('Hello world from ListController');
+  // });
+
+  it('6連勝を含むか○○○○○', function() {
+    var data = [false, false, false, false, false,
+      false, false, false, false ,false,
+      false, false, false, false, false,
+      false, false, false, false, false,
+      true, true, true, true, true];
+    var judge =  ListController.alreadyUpgraded(data, 6, 0);
+    expect(judge.state).to.equal(false);
   });
 
-  it('4連勝の場合', function() {
+  it('6連勝を含むか○○○○○○', function() {
+    var data = [false, false, false, false, false,
+      false, false, false, false ,true,
+      true, true, true, true, true,
+      false, false, false, false, false,
+      false, false, false, false, false];
+    var judge =  ListController.alreadyUpgraded(data, 6, 0);
+    expect(judge.state).to.equal(true);
+  });
+
+  it('9勝3敗を含むか○×○○○○○○×○○', function() {
+    var data = [false, false, false, false, false,
+      false, false, true, false ,true,
+      true, true, true, true, true,
+      false, true, true, false, false,
+      false, false, false, false, false];
+      var judge =  ListController.alreadyUpgraded(data, 9, 3);
+      expect(judge.state).to.equal(true);
+  });
+
+  it('5連勝の場合の残り勝敗', function() {
     var data = [false, false, false, false, false,
       false, false, false, false ,false,
       false, false, false, false, false,
       false, false, false, false, false,
       true, true, true, true, true];
     var scores = ListController.score(data, 0);
-    console.log(scores);
+    // console.log(scores);
     // 6連勝
     expect(scores[0].win).to.equal(5);
     expect(scores[0].lose).to.equals(0);
@@ -36,7 +66,7 @@ describe('Controller: ListController', function () {
     expect(scores[1].win_rest).to.equals(4);
     expect(scores[1].lose_rest).to.equals(3);
     // 11勝4敗
-    
+
 
   });
 });
