@@ -253,56 +253,69 @@
         win_count = 0, lose_count = 0, win_rest = 0, lose_rest = 0, i = 0, j = 0;
       if (rank == 0) {
         // 6連勝の可能性
-        for (i = data.length; i > data.length - 5; i--) {
-          if (data[i-1]) win_count++;
-          else {
-            win_rest = 6 - win_count;
-            lose_count = data.length - win_count;
-            lose_rest = 0;
+        results.push(vm.at_score(data, 6, 0));
+        // 9勝３敗の可能性
+        results.push(vm.at_score(data, 9, 3));
+        // 11勝4敗の可能性
+        results.push(vm.at_score(data, 11, 4));
+        // 13勝5敗の可能性
+        results.push(vm.at_score(data, 13, 5));
+        // 15勝6敗の可能性
+        results.push(vm.at_score(data, 15, 6));
+      } else {
+        // 8連勝の可能性
+        results.push(vm.at_score(data, 8, 0));
+        // 12勝4敗の可能性
+        results.push(vm.at_score(data, 12, 4));
+        // 14勝5敗の可能性
+        results.push(vm.at_score(data, 14, 5));
+        // 16勝6敗の可能性
+        results.push(vm.at_score(data, 16, 6));
+        // 18勝7敗の可能性
+        results.push(vm.at_score(data, 18, 7));
+      }
+      return results;
+    };
+    // あと何勝何敗で昇級か
+    // data: 勝敗データ, win: 昇級に必要な勝数, lose: 昇級に可能な敗数
+    this.at_score = function(data, win, lose) {
+      var win_count = 0, lose_count = 0, result = {}, found = false;
+      for (var i = data.length; i > data.length - (win + lose -1); i--) {
+        if (data[i-1]) win_count++;
+        else {
+          lose_count++;
+          // (lose+1)敗目を探し、その直前(data[i])で切る。
+          // (win+lose-1) の中で lose しか負けていない場合
+          if (lose_count == (lose + 1)) {
+            // 末尾の負けは削除する
+            var delta = 0;
+            for(var j = i; j < data.length; j++) {
+              if(!data[j]) delta++;
+              else break;
+            }
             result = {
-              win: win_count,
-              win_rest: wein_rest,
-              lose: lose_count,
-              lose_rest: lose_rest,
-              msg: ('現在' + win_count + '連勝中です。残り '+ win_rest +'連勝で昇級です')
+              win      : win_count,
+              lose     : lose_count - 1 - delta,
+              win_rest : win - win_count,
+              lose_rest: delta,
+              msg: ('現在' + win_count + '勝' + (lose_count - 1 - delta) + '敗中です。残り '+ (win - win_count) +'勝' + delta + '敗以上で昇級です')
             };
-            results.push(result);
+            found = true;
             break;
           }
         }
-        // 9勝３敗の可能性
-        win_count = 0;
-        for (i = data.length; i > data.length - 11; i--) {
-          if (data[i-1]) win_count++;
-          else {
-            lose_count++;
-            // 4敗目を探し、その直前(data[i])できる。
-            if (lose_count == 4) {
-              win_rest = 9 - win_count;
-              // 末尾の負けは削除する
-              var delta = 0;
-              for(j = i; j < data.length; j++) {
-                if(!data[j]) delta++;
-                else break;
-              }
-              result = {
-                win: win_count,
-                win_rest: 9 - win_count,
-                lose: 4 - delta,
-                lose_rest: delta,
-                msg: ('現在' + win_count + '勝' + lose_count + '敗中です。残り '+ win_rest +'勝' + lose_rest + '敗以上で昇級です')
-              };
-              // results.push('現在' + win_count + '勝中です。残り '+(9-win_count)+'連で昇級です');
-              results.push(result);
-              break;
-            }
-          }
-        }
-
-      } else {
-
       }
-      return results;
+      // (lose+1)敗目が見つからなかった場合は、(win-1)勝 lose敗
+      if (!found) {
+        result = {
+          win      : win_count,
+          lose     : lose_count,
+          win_rest : 1,
+          lose_rest: 0,
+          msg: ('現在' + win_count + '勝' + lose_count + '敗中です。残り1勝で昇級です')
+        }
+      }
+      return result;
     };
   };
 }).call(this);

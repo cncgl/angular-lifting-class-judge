@@ -25,6 +25,18 @@ describe('Controller: ListController', function () {
       true, true, true, true, true];
     var scores = ListController.score(data, 0);
     console.log(scores);
+    // 6連勝
+    expect(scores[0].win).to.equal(5);
+    expect(scores[0].lose).to.equals(0);
+    expect(scores[0].win_rest).to.equals(1);
+    expect(scores[0].lose_rest).to.equals(0);
+    // ９勝３敗
+    expect(scores[1].win).to.equal(5);
+    expect(scores[1].lose).to.equals(0);
+    expect(scores[1].win_rest).to.equals(4);
+    expect(scores[1].lose_rest).to.equals(3);
+    // 11勝4敗
     
+
   });
 });
