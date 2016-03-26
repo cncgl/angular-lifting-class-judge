@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/cncgl/angular-lifting-class-judge.svg?branch=master)](https://travis-ci.org/cncgl/angular-lifting-class-judge)
 
-## Hosting
+## Demo
 
 [http://cncgl.github.io/angular-lifting-class-judge/](http://cncgl.github.io/angular-lifting-class-judge/)
 
