@@ -19,13 +19,12 @@ body{
 ******************************/
 .social-area {
   width: 100% ;
-  min-height: 190px ;
-  background: #F5F1E9 ;	/* 背景色 */
+  min-height: 20px ;
   padding: 1.5em 0 ;
 }
 @media screen and ( min-width:480px ) {
   .social-area {
-    min-height: 119px ;
+    min-height: 20px ;
   }
 }
 ul.social-button {
@@ -37,13 +36,13 @@ ul.social-button {
 }
 @media screen and ( min-width:480px ) {
   ul.social-button {
-    width: 410px ;
+    width: 700px ;
   }
 }
 ul.social-button li {
   float: left ;
   text-align: center ;
-  height: 71px ;
+  height: 31px ;
   margin: 0 8px ;
   padding:0 ;
 }

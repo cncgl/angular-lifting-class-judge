@@ -18,21 +18,46 @@
     <div layout="column" flex="33" flex-offset="33">
       <h2 id="title" class="md-title">奨励会昇降級判定システム</h2>
 
-      <!--div class="social-area">
+      <div class="social-area">
         <ul class="social-button">
-          <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-          <li class="sc-fb"><div class="fb-like" data-href="https://syncer.jp" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
-          <li><div data-href="https://syncer.jp" class="g-plusone" data-size="tall"></div></li>
-          <li><a href="http://b.hatena.ne.jp/entry/https://syncer.jp" class="hatena-bookmark-button"
-                 data-hatena-bookmark-layout="vertical-balloon" data-hatena-bookmark-lang="ja"
-                 title="このエントリーをはてなブックマークに追加">
-            <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border:none;" /></a></li>
-          <li><a data-save-url="https://syncer.jp" data-pocket-label="pocket" data-pocket-count="vertical" class="pocket-btn"
-                 data-lang="en"></a></li>
+          <li><iframe src="http://ghbtns.com/github-btn.html?user=cncgl&repo=angular-lifting-class-judge&type=star&count=true"
+                      allowtransparency="true" frameborder="0" scrolling="0" width="90" height="20"></iframe></li>
+
+          <li><a href="https://twitter.com/share" class="twitter-share-button"
+                 data-url="http://cncgl.github.io/angular-lifting-class-judge/" data-text="奨励会昇降級判定システム"
+                 data-via="subcigel" data-lang="ja">ツイート</a></li>
+
+          <li><div class="fb-share-button" data-href="http://cncgl.github.io/angular-lifting-class-judge/"
+                   data-layout="button_count"></div></li>
+
+          <li><div class="g-plusone"></div></li>
+
+          <li><a href="http://b.hatena.ne.jp/entry/http://cncgl.github.io/angular-lifting-class-judge/"
+             class="hatena-bookmark-button" data-hatena-bookmark-title="奨励会昇降級判定システム"
+             data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加">
+            <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png"
+                 alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a></li>
+
+          <li><a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="ja"></a></li>
         </ul>
-        <div id="fb-root"></div>
-      </div-->
+        <span>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <div id="fb-root"></div>
+          <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/ja_KS/sdk.js#xfbml=1&version=v2.5&appId=492442180768939";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
+          <script src="https://apis.google.com/js/platform.js" async defer>
+            {lang: 'ja'}
+          </script>
+          <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+          <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+        </span>
+      </div>
+
 
       <p>直近の白星にチェックを入れてください。前回昇級した対局以降のみ入力してください。</p>
       <md-radio-group ng-model="data.group1" id="selector">
