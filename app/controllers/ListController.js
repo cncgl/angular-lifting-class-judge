@@ -38,7 +38,6 @@
         var results = [];
 
         var res = vm.checkUpgraded(this.cb, this.group1);
-        console.log(res);
         if(res.state) {
           results.push(res.msg);
         } else {
