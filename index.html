@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>奨励会昇降級判定システム</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./vendors.css">
+  <link rel="stylesheet" href="./app.css">
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+  <![endif]-->
+</head>
+<body>
+  <div layout="row" ng-controller="ListController" ng-cloak>
+    <div layout="column" flex="33" flex-offset="33">
+      <h2 id="title" class="md-title">奨励会昇降級判定システム</h2>
+      <div class="social-area">
+        <ul class="social-button">
+          <li><a href="https://twitter.com/share" class="twitter-share-button"
+                 data-url="http://cncgl.github.io/angular-lifting-class-judge/" data-hashtags="奨励会昇降級判定システム"
+                 data-via="subcigel" data-lang="ja">ツイート</a></li>
+          <li><div class="fb-share-button" data-href="http://cncgl.github.io/angular-lifting-class-judge/"
+                   data-layout="button_count"></div></li>
+          <li><div class="g-plusone" data-size="medium"></div></li>
+          <li><a href="http://b.hatena.ne.jp/entry/http://cncgl.github.io/angular-lifting-class-judge/"
+             class="hatena-bookmark-button" data-hatena-bookmark-title="奨励会昇降級判定システム"
+             data-hatena-bookmark-layout="simple-balloon" title="このエントリーをはてなブックマークに追加">
+            <img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png"
+                 alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a></li>
+          <li><a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="ja"></a></li>
+        </ul>
+        <span>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <div id="fb-root"></div>
+          <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/ja_KS/sdk.js#xfbml=1&version=v2.5&appId=885796521546008";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
+          <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+          <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+          <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+        </span>
+      </div>
+
+      <p>直近の白星にチェックを入れてください。前回昇級した対局以降のみ入力してください。</p>
+      <md-radio-group ng-model="data.group1" id="selector">
+        <md-radio-button value="0">6級〜1級</md-radio-button>
+        <md-radio-button value="1">初段〜3段</md-radio-button>
+      </md-radio-group>
+      <md-list>
+        <md-list-item ng-hide="data.group1==0">
+          直近25局前: <span ng-show="!data.cb[0]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[0]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[0]" aria-label="Checkbox 0"></md-checkbox>
+        </md-list-item>
+        <md-list-item ng-hide="data.group1==0">
+          直近24局前: <span ng-show="!data.cb[1]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[1]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[1]" aria-label="Checkbox 1"></md-checkbox>
+        </md-list-item>
+        <md-list-item ng-hide="data.group1==0">
+          直近23局前: <span ng-show="!data.cb[2]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[2]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[2]" aria-label="Checkbox 2"></md-checkbox>
+        </md-list-item>
+        <md-list-item ng-hide="data.group1==0">
+          直近22局前: <span ng-show="!data.cb[3]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[3]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[3]" aria-label="Checkbox 3"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近21局前: <span ng-show="!data.cb[4]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[4]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[4]" aria-label="Checkbox 4"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近20局前: <span ng-show="!data.cb[5]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[5]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[5]" aria-label="Checkbox 5"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近19局前: <span ng-show="!data.cb[6]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[6]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[6]" aria-label="Checkbox 6"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近18局前: <span ng-show="!data.cb[7]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[7]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[7]" aria-label="Checkbox 7"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近17局前: <span ng-show="!data.cb[8]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[8]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[8]" aria-label="Checkbox 8"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近16局前: <span ng-show="!data.cb[9]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[9]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[9]" aria-label="Checkbox 9"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近15局前: <span ng-show="!data.cb[10]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[10]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[10]" aria-label="Checkbox 10"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近14局前: <span ng-show="!data.cb[11]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[11]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[11]" aria-label="Checkbox 11"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近13局前: <span ng-show="!data.cb[12]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[12]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[12]" aria-label="Checkbox 12"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近12局前: <span ng-show="!data.cb[13]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[13]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[13]" aria-label="Checkbox 13"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近11局前: <span ng-show="!data.cb[14]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[14]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[14]" aria-label="Checkbox 14"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近10局前: <span ng-show="!data.cb[15]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[15]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[15]" aria-label="Checkbox 15"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近9局前: <span ng-show="!data.cb[16]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[16]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[16]" aria-label="Checkbox 16"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近8局前: <span ng-show="!data.cb[17]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[17]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[17]" aria-label="Checkbox 17"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近7局前: <span ng-show="!data.cb[18]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[18]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[18]" aria-label="Checkbox 18"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近6局前: <span ng-show="!data.cb[19]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[19]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[19]" aria-label="Checkbox 19"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近5局前: <span ng-show="!data.cb[20]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[20]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[20]" aria-label="Checkbox 20"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近4局前: <span ng-show="!data.cb[21]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[21]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[21]" aria-label="Checkbox 21"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近3局前: <span ng-show="!data.cb[22]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[22]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[22]" aria-label="Checkbox 22"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          直近２局前: <span ng-show="!data.cb[23]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[23]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[23]" aria-label="Checkbox 23"></md-checkbox>
+        </md-list-item>
+        <md-list-item>
+          前局: <span ng-show="!data.cb[24]"><i class="fa fa-circle"></i></span><span ng-show="data.cb[24]"><i class="fa fa-circle-o"></i></span>
+          <md-checkbox class="md-secondary" ng-model="data.cb[24]" aria-label="Checkbox 24"></md-checkbox>
+        </md-list-item>
+      </md-list>
+      <hr/>
+      <p>{{ data.win() }} 勝 {{ data.lose() }} 敗</p>
+      <p ng-repeat="res in data.rest()">{{ res }}</p>
+    </div>
+    <div layout="column" flex>
+      <a href="https://github.com/cncgl/angular-lifting-class-judge#fork-destination-box">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+      </a>
+    </div>
+  </div>
+
+  <div ui-view></div>
+  <script src="vendors.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
