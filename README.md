@@ -3,6 +3,7 @@
 奨励会の昇降級判定プログラム
 
 [![Build Status](https://travis-ci.org/cncgl/angular-lifting-class-judge.svg?branch=master)](https://travis-ci.org/cncgl/angular-lifting-class-judge)
+[![Dependency Status](https://gemnasium.com/badges/github.com/cncgl/angular-lifting-class-judge.svg)](https://gemnasium.com/github.com/cncgl/angular-lifting-class-judge)
 
 ## Demo
 
